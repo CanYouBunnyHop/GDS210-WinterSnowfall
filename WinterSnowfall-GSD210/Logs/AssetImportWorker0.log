@@ -1,0 +1,127 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.11f1 (99c7afb366b3) revision 10078127'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home; OS build 19042.985; Version 2009; 64bit' Language: 'en' Physical Memory: 8110 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.11f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/blbw6/Desktop/WinterSnowfall/GDS210-WinterSnowfall/WinterSnowfall-GSD210
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+50609
+Successfully changed project path to: C:/Users/blbw6/Desktop/WinterSnowfall/GDS210-WinterSnowfall/WinterSnowfall-GSD210
+C:/Users/blbw6/Desktop/WinterSnowfall/GDS210-WinterSnowfall/WinterSnowfall-GSD210
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 36.28 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.11f1 (99c7afb366b3)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/blbw6/Desktop/WinterSnowfall/GDS210-WinterSnowfall/WinterSnowfall-GSD210/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1060 3GB (ID=0x1c02)
+    Vendor:   
+    VRAM:     2988 MB
+    Driver:   27.21.14.6140
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56720
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001478 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 33.04 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.874 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.003617 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 34.79 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.975 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Error creating external process 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Tools/UnityShaderCompiler.exe' : The paging file is too small for this operation to complete.
+
+Error cleaning up external process: The handle is invalid.
+
+Failed to launch UnityShaderCompiler.exe shader compiler! C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Tools/UnityShaderCompiler.exe
+Error creating external process 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Tools/UnityShaderCompiler.exe' : The paging file is too small for this operation to complete.
+
+Error cleaning up external process: The handle is invalid.
+
+Failed to launch UnityShaderCompiler.exe shader compiler! C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Tools/UnityShaderCompiler.exe
+Error creating external process 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Tools/UnityShaderCompiler.exe' : The paging file is too small for this operation to complete.
+
+Error cleaning up external process: The handle is invalid.
+
+Failed to launch UnityShaderCompiler.exe shader compiler! C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Tools/UnityShaderCompiler.exe
+Error creating external process 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Tools/UnityShaderCompiler.exe' : The paging file is too small for this operation to complete.
+
+Error cleaning up external process: The handle is invalid.
+
+Failed to launch UnityShaderCompiler.exe shader compiler! C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Tools/UnityShaderCompiler.exe
+Error creating external process 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Tools/UnityShaderCompiler.exe' : The paging file is too small for this operation to complete.
+
+Error cleaning up external process: The handle is invalid.
+
+Failed to launch UnityShaderCompiler.exe shader compiler! C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Tools/UnityShaderCompiler.exe
+Error creating external process 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Tools/UnityShaderCompiler.exe' : The paging file is too small for this operation to complete.
+
+Error cleaning up external process: The handle is invalid.
+
+Failed to launch UnityShaderCompiler.exe shader compiler! C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Tools/UnityShaderCompiler.exe
+Error creating external process 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Tools/UnityShaderCompiler.exe' : The paging file is too small for this operation to complete.
+
+Error cleaning up external process: The handle is invalid.
+
+Failed to launch UnityShaderCompiler.exe shader compiler! C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Tools/UnityShaderCompiler.exe
+Error creating external process 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Tools/UnityShaderCompiler.exe' : The paging file is too small for this operation to complete.
+
+Error cleaning up external process: The handle is invalid.
+
+Failed to launch UnityShaderCompiler.exe shader compiler! C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Tools/UnityShaderCompiler.exe
+Error creating external process 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Tools/UnityShaderCompiler.exe' : The paging file is too small for this operation to complete.
+
+Error cleaning up external process: The handle is invalid.
+
+Failed to launch UnityShaderCompiler.exe shader compiler! C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Tools/UnityShaderCompiler.exe
+Error creating external process 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Tools/UnityShaderCompiler.exe' : The paging file is too small for this operation to complete.
+
+Error cleaning up external process: The handle is invalid.
+
+Failed to launch UnityShaderCompiler.exe shader compiler! C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Tools/UnityShaderCompiler.exe
+Shader compiler: failed to launch and initialize compiler executable, even after 10 retries
+
+Shader compiler initialization error: Failed to launch UnityShaderCompiler.exe shader compiler! C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Tools/UnityShaderCompiler.exe
+
+Fatal Error! Shader compiler initialization error: Failed to launch UnityShaderCompiler.exe shader compiler! C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Tools/UnityShaderCompiler.exe
+
+
+Crash!!!
+  ERROR: Error while initializing dbghelp.dll, GetLastError: 'The operation completed successfully.' (Address: 0000000000000000)
+
+========== OUTPUTTING STACK TRACE ==================
+
+  ERROR: Error while initializing dbghelp.dll, GetLastError: 'The operation completed successfully.' (Address: 0000000000000000)
+
+========== END OF STACKTRACE ===========
+
+A crash has been intercepted by the crash handler. For call stack and other details, see the latest crash report generated in:
+ * C:/Users/blbw6/AppData/Local/Temp/Unity/Editor/Crashes
