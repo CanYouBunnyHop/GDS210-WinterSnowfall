@@ -37,17 +37,23 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    void FixedUpdate()
+    {
+         CountJumpHoldTime();
+         CheckIfPlayerJump();
+         playerVerticalSpeed = rb.velocity.y;
+    }
+
     void Update()
     { 
+       
         PlayerState();
-        PlayerInput();
-        Camera();
-        CheckIfPlayerJump();
-        CountJumpHoldTime();
-        playerVerticalSpeed = rb.velocity.y;
+        PlayerInput(); 
+       
     }
         void LateUpdate()
     {
+        Camera();
         IsJumping();
     }
     private void PlayerState()
@@ -114,13 +120,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if(Input.GetButton("Jump") && !grounded)
         {
-            jumpHoldTime += Time.deltaTime;
+            jumpHoldTime += Time.fixedDeltaTime;
         }
 
         //high jump 
         if(Input.GetButton("Jump") && playerVerticalSpeed >0 && jumpHoldTime < maxJumpHoldTime && isJumping)
         {
-             rb.AddForce(Vector2.up * jumpForce);
+             rb.AddForce(Vector2.up * jumpForce * 3f);
         }
        
     }
