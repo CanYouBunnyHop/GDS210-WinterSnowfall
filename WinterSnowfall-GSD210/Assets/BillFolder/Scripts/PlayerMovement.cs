@@ -129,7 +129,7 @@ public class PlayerMovement : MonoBehaviour
     private void CheckIfPlayerJump()
     {
         //Jump
-       if(jumpBufferCount >=0 && coyoteCounter >= 0f && lateGrounded)
+       if(jumpBufferCount >=0 && coyoteCounter >= 0f)
        {
            
            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
@@ -154,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void IsJumping()
     {
-        if(Input.GetButton("Jump") && lateGrounded)
+        if(Input.GetButton("Jump"))
         {
             isJumping = true;
         }
@@ -162,8 +162,6 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumping = false;
         }
-        //frame after player is not grounded this will return true
-        lateGrounded = Physics2D.OverlapCircle(groundcheck.position, 0.1f, whatIsGround) || Physics2D.OverlapCircle(groundcheck2.position, 0.1f, whatIsGround);
     }
 
 }
