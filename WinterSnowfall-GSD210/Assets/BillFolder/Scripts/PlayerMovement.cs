@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
 
     public float jumpForce;
+    public float jumpAddForce;
     public float jumpBufferLength = 0.1f;
     private float jumpBufferCount;
     public bool grounded;
@@ -32,9 +33,12 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     private float playerVerticalSpeed;
+
+    private SpriteRenderer sprite;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()
@@ -48,8 +52,10 @@ public class PlayerMovement : MonoBehaviour
     { 
        
         PlayerState();
-        PlayerInput(); 
-       
+        PlayerInput();
+        PlayerAnimation();
+
+
     }
         void LateUpdate()
     {
@@ -74,8 +80,11 @@ public class PlayerMovement : MonoBehaviour
         if(grounded)
         {
             coyoteCounter = coyoteTime;
-            jumpHoldTime = 0f;
-           
+
+            if(!isJumping)
+            {
+                jumpHoldTime = 0f;
+            }
         }
         else
         {
@@ -86,6 +95,18 @@ public class PlayerMovement : MonoBehaviour
         if(grounded && rb.velocity.y == 0)
         {
              isJumping = false;
+        }
+    }
+
+    private void PlayerAnimation()
+    {
+        if(Input.GetAxisRaw("Horizontal") > 0)
+        {
+            sprite.flipX = true;
+        }
+        if(Input.GetAxisRaw("Horizontal") < 0)
+        {
+            sprite.flipX = false;
         }
     }
 
@@ -108,7 +129,7 @@ public class PlayerMovement : MonoBehaviour
     private void CheckIfPlayerJump()
     {
         //Jump
-       if(jumpBufferCount >=0 && coyoteCounter >= 0f)
+       if(jumpBufferCount >=0 && coyoteCounter >= 0f && lateGrounded)
        {
            
            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
@@ -124,9 +145,9 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //high jump 
-        if(Input.GetButton("Jump") && playerVerticalSpeed >0 && jumpHoldTime < maxJumpHoldTime && isJumping)
+        if(Input.GetButton("Jump") && playerVerticalSpeed >0 && jumpHoldTime < maxJumpHoldTime && jumpHoldTime > 0.06f && isJumping)
         {
-             rb.AddForce(Vector2.up * jumpForce * 3f);
+             rb.AddForce(Vector2.up * jumpAddForce * 3f , ForceMode2D.Force);
         }
        
     }
