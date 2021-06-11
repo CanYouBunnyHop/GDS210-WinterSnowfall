@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     private float playerVerticalSpeed;
 
     private SpriteRenderer sprite;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -50,7 +51,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     { 
-       
         PlayerState();
         PlayerInput();
         PlayerAnimation();
@@ -112,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void PlayerInput()
     {
-         //left right movement
+        //left right movement
         rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, rb.velocity.y);
     }
 
