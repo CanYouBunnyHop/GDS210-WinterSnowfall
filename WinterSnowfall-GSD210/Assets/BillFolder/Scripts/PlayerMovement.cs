@@ -55,7 +55,6 @@ public class PlayerMovement : MonoBehaviour
         PlayerInput();
         PlayerAnimation();
 
-
     }
         void LateUpdate()
     {
@@ -154,7 +153,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void IsJumping()
     {
-        if(Input.GetButton("Jump"))
+        if(Input.GetButton("Jump") && coyoteCounter >= 0f)
         {
             isJumping = true;
         }
