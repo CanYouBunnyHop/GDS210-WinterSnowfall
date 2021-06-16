@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.EventSystems;
 public class PlayerMovement : MonoBehaviour
 {
     public Transform groundcheck, groundcheck2;
@@ -36,6 +36,12 @@ public class PlayerMovement : MonoBehaviour
 
     private SpriteRenderer sprite;
 
+    public Animator Ani;
+
+    public Joystick joystick;
+    public float joystickSens;
+    public JumpButton jumpButt;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -54,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
         PlayerState();
         PlayerInput();
         PlayerAnimation();
-
+        HoldJumpButtonInput();
 
     }
         void LateUpdate()
@@ -95,25 +101,40 @@ public class PlayerMovement : MonoBehaviour
         if(grounded && rb.velocity.y == 0)
         {
              isJumping = false;
+            
         }
     }
 
     private void PlayerAnimation()
     {
-        if(Input.GetAxisRaw("Horizontal") > 0)
+        if (Input.GetAxisRaw("Horizontal") > 0 || joystick.Horizontal >= joystickSens)
         {
             sprite.flipX = true;
         }
-        if(Input.GetAxisRaw("Horizontal") < 0)
+        if (Input.GetAxisRaw("Horizontal") < 0 || joystick.Horizontal <= -joystickSens)
         {
             sprite.flipX = false;
         }
+
+        float mag = rb.velocity.magnitude;
+        Ani.SetFloat("Speed", mag);
     }
 
-    private void PlayerInput()
+
+        private void PlayerInput()
     {
         //left right movement
         rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, rb.velocity.y);
+
+        //joystick movement
+        if(joystick.Horizontal >= joystickSens)
+        {
+            rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+        }
+        else if(joystick.Horizontal <= -joystickSens)
+        {
+            rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
+        }
     }
 
     private void Camera()
@@ -126,7 +147,7 @@ public class PlayerMovement : MonoBehaviour
     
     }
 
-    private void CheckIfPlayerJump()
+    public void CheckIfPlayerJump()
     {
         //Jump
        if(jumpBufferCount >=0 && coyoteCounter >= 0f)
@@ -134,6 +155,7 @@ public class PlayerMovement : MonoBehaviour
            
            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
            jumpBufferCount = 0;
+           
            
        }
     }
@@ -154,7 +176,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void IsJumping()
     {
-        if(Input.GetButton("Jump"))
+        if(Input.GetButton("Jump") && coyoteCounter >= 0f)
         {
             isJumping = true;
         }
@@ -163,5 +185,39 @@ public class PlayerMovement : MonoBehaviour
             isJumping = false;
         }
     }
+
+
+    //android Jump Controls
+    public void OnClickJumpButton()
+    {
+        jumpBufferCount = jumpBufferLength;
+    }
+    public void HoldJumpButtonInput()
+    {
+        //holding button
+        if(jumpButt.buttonPressed && coyoteCounter >= 0f)
+        {
+            isJumping = true;
+        }
+
+        //button up
+        if (jumpButt.buttonState == 2)
+        { 
+            isJumping = false;
+        }
+
+        if (jumpButt.buttonPressed && !grounded)
+        {
+            jumpHoldTime += Time.fixedDeltaTime;
+        }
+
+        //high jump 
+        if (jumpButt.buttonPressed && playerVerticalSpeed > 0 && jumpHoldTime < maxJumpHoldTime && jumpHoldTime > 0.06f && isJumping)
+        {
+            rb.AddForce(Vector2.up * jumpAddForce * 3f, ForceMode2D.Force);
+        }
+    }
+    
+
 
 }
