@@ -29,7 +29,7 @@ public class JumpButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if (buttonPressed) {buttonState = 1; }
 
-        if (!buttonPressed) {buttonState = 2; Invoke("ResetButton", 0.1f); } 
+        if (!buttonPressed) {buttonState = 2; Invoke("ResetButton", 0.01f); } 
     }
 
     public void ResetButton()

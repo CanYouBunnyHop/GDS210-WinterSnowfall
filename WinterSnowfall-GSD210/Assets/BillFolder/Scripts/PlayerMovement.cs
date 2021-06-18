@@ -42,10 +42,26 @@ public class PlayerMovement : MonoBehaviour
     public float joystickSens;
     public JumpButton jumpButt;
 
+    private AudioSource jumpNoise;
+
+    public ParticleSystem footstep;
+    private ParticleSystem.EmissionModule footEmission;
+
+    public ParticleSystem impactEffect;
+    private bool wasOnGround;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        jumpNoise = GetComponent<AudioSource>();
+
+        //make sure it doesn't jump on  start
+        jumpBufferCount = -1;
+        isJumping = false;
+
+        //particle system
+        footEmission = footstep.emission;
     }
 
     void FixedUpdate()
@@ -61,7 +77,17 @@ public class PlayerMovement : MonoBehaviour
         PlayerInput();
         PlayerAnimation();
         HoldJumpButtonInput();
+        FootParticles();
 
+        //impact particles
+        if(!wasOnGround && grounded)
+        {
+            impactEffect.gameObject.SetActive(true);
+            impactEffect.Stop();
+            impactEffect.transform.position = footstep.transform.position;
+            impactEffect.Play();
+        }
+        wasOnGround = grounded;
     }
         void LateUpdate()
     {
@@ -125,6 +151,7 @@ public class PlayerMovement : MonoBehaviour
     {
         //left right movement
         rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, rb.velocity.y);
+        
 
         //joystick movement
         if(joystick.Horizontal >= joystickSens)
@@ -155,9 +182,12 @@ public class PlayerMovement : MonoBehaviour
            
            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
            jumpBufferCount = 0;
-           
-           
+            
        }
+        if (jumpBufferCount >= 0 && coyoteCounter >= 0f && grounded)
+        {
+            jumpNoise.Play();
+        }
     }
     private void CountJumpHoldTime()
     {
@@ -217,7 +247,18 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(Vector2.up * jumpAddForce * 3f, ForceMode2D.Force);
         }
     }
-    
 
+    //foot particle system
+    private void FootParticles()
+    {
+       if (rb.velocity.x != 0f && grounded)
+        {
+            footEmission.rateOverTime = 35f;
+        }
+       else
+        {
+            footEmission.rateOverTime = 0f;
+        }
+    }
 
 }
